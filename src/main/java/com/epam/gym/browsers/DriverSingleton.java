@@ -1,6 +1,8 @@
 package com.epam.gym.browsers;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverSingleton {
 
@@ -9,14 +11,17 @@ public class DriverSingleton {
     private DriverSingleton() {
     }
 
+    public static void main(String[] args) {
+        WebDriver driver = DriverSingleton.getDriver();
+        driver.get("https://www.google.com");
+        System.out.println(driver.getTitle());
+    }
     public static WebDriver getDriver() {
         if (driver == null) {
-            synchronized (DriverSingleton.class) {
-                if (driver == null) {
-                    driver = WebDriverFactory.getDriver();
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--headless");
+                    driver = new ChromeDriver(options);
                 }
-            }
-        }
         return driver;
     }
 

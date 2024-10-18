@@ -1,6 +1,7 @@
 Feature: Validate Gym Management Registration Page
 
 
+  @Regression
   Scenario Outline: Validate registration
 
     When I enter "<name>", "<email>" and "<password>" in their fields
@@ -100,6 +101,8 @@ Feature: Validate Gym Management Registration Page
   Scenario: Validate the presence of login button
     When I click the login button
     Then I should directly go to the login page
+
+
 
 
 

@@ -38,6 +38,8 @@ Feature: User Registration API Testing
       | John Doe | a12@gmail.com           | Passw0rd!  |             | Yoga               | 400        | "Target is required and must contain at least one alphabetic character and cannot be purely numeric."              |
       | John Doe | valiwedd13@gmail.com    | Passw0rd!  | Weight Loss |                    | 400        | "Preferable activity is required and must contain at least one alphabetic character and cannot be purely numeric." |
 
+
+
   @Regression
   Scenario Outline: Test registration API with various input parameters
     Given the API endpoint is loaded from "baseURI"
