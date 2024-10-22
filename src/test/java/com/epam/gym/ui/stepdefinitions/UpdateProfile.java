@@ -54,7 +54,7 @@ public class UpdateProfile {
 
     @And("I enter {string}, {string}, and {string}")
     public void iEnterAnd(String Name, String Your_Target, String Prefarable_Activity) throws InterruptedException{
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         updatePage.enterName(Name);
         if(!Your_Target.isEmpty()){
             updatePage.targetDropDown();
@@ -62,6 +62,7 @@ public class UpdateProfile {
         }
         System.out.println("Going to activity dropdown");
 
+        Thread.sleep(2000);
         if(!Prefarable_Activity.isEmpty()){
             updatePage.activityDropDown();
             updatePage.selectActivity(Prefarable_Activity);
@@ -76,10 +77,17 @@ public class UpdateProfile {
     }
 
     @Then("I should see {string} in the {string}")
-    public void iShouldSeeTheMessage(String message, String locator) {
+    public void iShouldSeeTheMessage(String message, String locator) throws InterruptedException {
         if (locator.toLowerCase().equals("toast")){
             WebElement toastElement = UpdatePage.getToastMessage();
             Assert.assertEquals(toastElement.getText(), message);
+        }
+
+        else if(locator.toLowerCase().equals("inline")){
+            Thread.sleep(2000);
+            Assert.assertTrue(updatePage.getNameErrorMessage().contains(message),
+                    "Response does not contain the expected message: "+message);
+
         }
 
     }

@@ -1,8 +1,11 @@
 package com.epam.gym.browsers;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverSingleton {
 
@@ -11,16 +14,12 @@ public class DriverSingleton {
     private DriverSingleton() {
     }
 
-    public static void main(String[] args) {
-        WebDriver driver = DriverSingleton.getDriver();
-        driver.get("https://www.google.com");
-        System.out.println(driver.getTitle());
-    }
+
     public static WebDriver getDriver() {
         if (driver == null) {
-                    ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--headless");
-                    driver = new ChromeDriver(options);
+            FirefoxOptions f=new FirefoxOptions();
+           // f.addArguments("--headless");
+            driver=new FirefoxDriver(f);
                 }
         return driver;
     }
@@ -30,5 +29,15 @@ public class DriverSingleton {
             driver.close();
             driver = null;
         }
+    }
+
+    public static void jsExecutorExample(){
+        FirefoxOptions f=new FirefoxOptions();
+        f.addArguments("--headless");
+        driver=new FirefoxDriver(f);
+        driver.get("https://demoqa.com/automation-practice-form");
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        String str= (String)js.executeScript("return document.title");
+        System.out.println(str);
     }
 }

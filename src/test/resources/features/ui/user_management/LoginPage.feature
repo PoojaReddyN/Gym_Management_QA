@@ -11,7 +11,7 @@ Feature: Login to gym application
     Examples:
       | email              | password        | message                                              | locator     |
       | pooja.n@gmail.com  | Valid1$Password | Login successful                                     | toast       |
-      | xyz@gmail.com      | Abhijit@2024    | Login failed: User not found.                        | toast       |
+      | pooja.n@gmail.com  | Abhijit@2024    | Login failed: Wrong username or password             | toast       |
       | rajesh@gmail.com   | Abhi1@2         | Password cannot be less than 8 characters            | PassInline  |
       | radha@gmail.com    | abhijit@1       | Password must contain at least one uppercase letter  | PassInline  |
       | raghava@gmail..com | Abhijit1        | Password must contain at least one special character | PassInline  |

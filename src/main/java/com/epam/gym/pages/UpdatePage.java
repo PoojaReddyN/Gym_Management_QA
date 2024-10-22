@@ -51,6 +51,9 @@ public class UpdatePage {
     @FindBy(xpath ="//div [@role = \"alert\"]")
     private static WebElement toastElement;
 
+    @FindBy(id = ":r1c:-helper-text")
+    private static WebElement nameErrorMessage;
+
 
 
     public void clickProfileIcon()  {
@@ -124,6 +127,10 @@ public class UpdatePage {
         By.ByXPath toastElement = new By.ByXPath("//div [@role = \"alert\"]");
          WebElement toastMessage = WaitHelper.waitForvisibilityOfElementLocated(toastElement, 20, driver);
         return toastMessage;
+    }
+
+    public String getNameErrorMessage(){
+        return nameErrorMessage.getText();
     }
 }
 

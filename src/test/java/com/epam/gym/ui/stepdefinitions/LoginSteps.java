@@ -2,6 +2,7 @@ package com.epam.gym.ui.stepdefinitions;
 
 import com.epam.gym.browsers.DriverSingleton;
 import com.epam.gym.pages.LoginPage;
+import com.epam.gym.pages.RegistrationPage;
 import com.epam.gym.utils.ConfigLoader;
 import com.epam.gym.browsers.SeleniumCommon;
 import io.cucumber.java.en.And;
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class LoginSteps {
+    private RegistrationPage registrationPage;
     private LoginPage loginPage;
 
     @Given("I am on the Login page")
@@ -20,8 +22,11 @@ public class LoginSteps {
         System.out.println("I am on the Login page");
         String uri = ConfigLoader.getProperty("browser.uri");
         WebDriver driver = DriverSingleton.getDriver();
-        loginPage = new LoginPage(driver);
-        SeleniumCommon.openBrowser( uri + "login");
+      //  loginPage = new LoginPage(driver);
+        SeleniumCommon.openBrowser(uri);
+        registrationPage = new RegistrationPage(driver);
+        loginPage = registrationPage.navigateToLoginPage();
+        System.out.println(driver.getCurrentUrl());
     }
 
     @When("I enter {string} and {string}")

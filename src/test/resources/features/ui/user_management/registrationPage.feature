@@ -9,9 +9,9 @@ Feature: Validate Gym Management Registration Page
     And I click the register button
     Then I should see the toast message as "<toastMessage>"
     Examples:
-      | email                   | password    | name  | target      | activity | toastMessage                 |
-      | validemail.4@test.com   | Password12@ | Pooja | weight loss | crossfit | Created Account Successfully |
-      | valid.email167@test.com | Password12@ | Pooja | weight loss | crossfit | Email is already registered. |
+      | email                   | password    | name  | target      | activity | toastMessage                               |
+      | validemail.412@test.com | Password12@ | Pooja | weight loss | CrossFit | Created Account Successfully               |
+      | valid.email167@test.com | Password12@ | Pooja | weight loss | CrossFit | User already exists. Please try to log in. |
 
 
   Scenario Outline: Validate registration with improper name
@@ -100,6 +100,19 @@ Feature: Validate Gym Management Registration Page
   Scenario: Validate the presence of login button
     When I click the login button
     Then I should directly go to the login page
+
+  @Regression
+  Scenario Outline: Test registration page with various input parameters for regression testing
+    When I enter "<name>", "<email>" and "<password>" in their fields
+    And I select "<target>" from the target dropdown
+    And I select "<activity>" from the preferable activity dropdown
+    And I click the register button
+    Then I should see the toast message as "<toastMessage>"
+
+    Examples:
+      | email                   | password    | name  | target      | activity | toastMessage                               |
+      | validemail.43@test.com  | Password12@ | Pooja | weight loss | CrossFit | Created Account Successfully               |
+      | valid.email167@test.com | Password12@ | Pooja | weight loss | CrossFit | User already exists. Please try to log in. |
 
 
 

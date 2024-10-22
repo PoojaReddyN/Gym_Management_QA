@@ -20,14 +20,14 @@ public class UIRegistrationSteps {
     public static void openTheRegistrationPage() throws InterruptedException{
         uri= ConfigLoader.getProperty("browser.uri");
         driver = SeleniumCommon.openBrowser(uri);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         registrationPage = new RegistrationPage(driver);
     }
 
     @When("I enter {string}, {string} and {string} in their fields")
     public void iEnterAndInTheirFields(String name, String email, String password) throws InterruptedException{
         openTheRegistrationPage();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         registrationPage.enterName(name);
         registrationPage.enterEmail(email);
         registrationPage.enterPassword(password);
@@ -40,19 +40,21 @@ public class UIRegistrationSteps {
     }
 
     @And("I select {string} from the preferable activity dropdown")
-    public void iSelectFromThePreferableActivityDropdown(String activity) {
+    public void iSelectFromThePreferableActivityDropdown(String activity) throws InterruptedException {
+        Thread.sleep(2000);
         registrationPage.activityDropDown();
         registrationPage.selectActivity(activity);
     }
 
     @And("I click the register button")
-    public void iClickTheRegisterButton() {
+    public void iClickTheRegisterButton() throws InterruptedException{
+        Thread.sleep(2000);
         registrationPage.clickOnCreateAccount();
     }
 
 
     @Then("I should see the toast message as {string}")
-    public void iShouldSeeTheToastMessageAs(String expectedToastMessage) {
+    public void iShouldSeeTheToastMessageAs(String expectedToastMessage){
         System.out.println(registrationPage.getToastMessage());
         Assert.assertTrue(registrationPage.getToastMessage().contains(expectedToastMessage),
                 "Response does not contain the expected message: " + expectedToastMessage);
@@ -71,7 +73,8 @@ public class UIRegistrationSteps {
     }
 
     @Then("I should see the error message at the name field as {string}")
-    public void iShouldSeeTheErrorMessageAtTheNameFieldAs(String errorMessage) {
+    public void iShouldSeeTheErrorMessageAtTheNameFieldAs(String errorMessage) throws InterruptedException{
+        Thread.sleep(2000);
         Assert.assertTrue(registrationPage.getNameErrorMessage().contains(errorMessage),
                 "Response does not contain the expected message: "+errorMessage);
     }

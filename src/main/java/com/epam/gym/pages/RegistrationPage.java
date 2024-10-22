@@ -49,7 +49,7 @@ public class RegistrationPage {
     @FindBy(css = "#menu-activity ul li")
     List<WebElement> activityDropDownOptions;
 
-    @FindBy(xpath = "//form/button")
+    @FindBy(xpath = "//form/button[text()='Create An Account']")
     WebElement createAccountButton;
 
     @FindBy(xpath = "//span[text()='LOGIN HERE']")
@@ -141,6 +141,7 @@ public class RegistrationPage {
     }
 
     public LoginPage navigateToLoginPage(){
+        loginButton.click();
         return new LoginPage(driver);
     }
 
