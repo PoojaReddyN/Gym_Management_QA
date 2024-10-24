@@ -3,6 +3,7 @@ Feature: Login to gym application
   Background:
     Given I am on the Login page
 
+  @Regression
   Scenario Outline: Test login functionality with different credentials
     When I enter "<email>" and "<password>"
     And I click on the login button

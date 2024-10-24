@@ -1,5 +1,6 @@
 Feature: Validate Coaches Page Functionality
 
+  @Regression
   Scenario Outline: Verify coach information and book workout functionality
     Given I have logged in to the application
     When I view the list of coaches

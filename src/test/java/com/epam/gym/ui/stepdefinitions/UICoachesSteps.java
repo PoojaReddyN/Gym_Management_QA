@@ -4,6 +4,7 @@ import com.epam.gym.browsers.DriverSingleton;
 import com.epam.gym.pages.CoachesPage;
 import com.epam.gym.pages.LoginPage;
 import com.epam.gym.pages.CoachNavigation;
+import com.epam.gym.pages.RegistrationPage;
 import com.epam.gym.utils.ConfigLoader;
 import com.epam.gym.browsers.SeleniumCommon;
 import io.cucumber.java.en.And;
@@ -16,6 +17,7 @@ import org.testng.Assert;
 public class UICoachesSteps {
     private static WebDriver driver;
     private static String u;
+    RegistrationPage registrationPage;
     private static LoginPage loginPage;
     CoachNavigation workoutsPage;
     CoachesPage coachesPage;
@@ -26,8 +28,9 @@ public class UICoachesSteps {
         String password = ConfigLoader.getProperty("password");
         driver = DriverSingleton.getDriver();
         String uri = ConfigLoader.getProperty("browser.uri");
-        SeleniumCommon.openBrowser(uri + "login");
-        loginPage = new LoginPage(driver);
+        SeleniumCommon.openBrowser(uri);
+        registrationPage = new RegistrationPage(driver);
+        loginPage = registrationPage.navigateToLoginPage();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.submit();

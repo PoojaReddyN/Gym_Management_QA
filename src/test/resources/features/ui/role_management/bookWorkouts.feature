@@ -1,4 +1,6 @@
 Feature: Booking a workout session
+
+  @Regression
   Scenario Outline: Validate date, month, and year selection for present or future dates
     Given the user navigates to the book workouts page
     When the user selects year, month, date, and time slot "<timeSlot>"

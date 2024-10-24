@@ -15,6 +15,7 @@ public class WorkoutStep {
         driver = DriverSingleton.getDriver();
         workoutStepPage = new WorkoutStepPage(driver);
     }
+
     @Given("I am on the Workouts page")
     public void iAmOnTheWorkoutsPage() {
         workoutStepPage.verifyWorkoutPage();

@@ -51,7 +51,7 @@ public class UpdatePage {
     @FindBy(xpath ="//div [@role = \"alert\"]")
     private static WebElement toastElement;
 
-    @FindBy(id = ":r1c:-helper-text")
+    @FindBy(id = ":r2e:-helper-text")
     private static WebElement nameErrorMessage;
 
 

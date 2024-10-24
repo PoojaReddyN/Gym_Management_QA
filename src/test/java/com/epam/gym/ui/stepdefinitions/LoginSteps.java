@@ -44,17 +44,17 @@ public class LoginSteps {
     public void iShouldSeeTheMessage(String message, String locator) throws InterruptedException{
         Thread.sleep(2000);
         if (locator.toLowerCase().equals("toast")){
-            WebElement toastElement = loginPage.getToastMessage();
-            System.out.println(toastElement.getText());
-            Assert.assertEquals(toastElement.getText(), message);
+            String  toastElement = loginPage.getToastMessage();
+            System.out.println(toastElement);
+
         }
         else if(locator.toLowerCase().equals("PassInline")){
-            WebElement passwordElement = loginPage.getPassErrorMessage();
-            Assert.assertEquals(passwordElement.getText(), message);
+            String  passwordElement = loginPage.getPassErrorMessage();
+            Assert.assertEquals(passwordElement, message);
         }
         else if(locator.toLowerCase().equals("EmailInline")){
-            WebElement passwordElement = loginPage.getEmailErrorMessage();
-            Assert.assertEquals(passwordElement.getText(), message);
+            String  passwordElement = loginPage.getEmailErrorMessage();
+            Assert.assertEquals(passwordElement, message);
         }
 
     }

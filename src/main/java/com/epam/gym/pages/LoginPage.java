@@ -65,17 +65,20 @@ public class LoginPage {
     }
 
 
-    public WebElement getToastMessage() {
-        return WaitHelper.waitForElementToBeVisible(driver, toastElement, 100);
+    public String  getToastMessage() {
+         WaitHelper.waitForElementToBeVisible(driver, toastElement, 100);
+         return toastElement.getText();
     }
 
-    public WebElement getPassErrorMessage() {
-        return WaitHelper.waitForElementToBeVisible(driver, invalidPassword, 10);
+    public String  getPassErrorMessage() {
+         WaitHelper.waitForElementToBeVisible(driver, invalidPassword, 10);
+         return invalidPassword.getText();
 
     }
 
-    public WebElement getEmailErrorMessage() {
-        return WaitHelper.waitForElementToBeVisible(driver, invalidEmail, 10);
+    public String getEmailErrorMessage() {
+         WaitHelper.waitForElementToBeVisible(driver, invalidEmail, 10);
+         return invalidEmail.getText();
 
     }
 

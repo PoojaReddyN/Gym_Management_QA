@@ -15,6 +15,7 @@ public class UIBookWorkoutsSteps {
 
     private static String uri;
     private static WebDriver driver;
+    static RegistrationPage registrationPage;
     private static LoginPage loginPage;
     CoachNavigation workoutsPage;
     CoachesPage coachesPage;
@@ -25,8 +26,9 @@ public class UIBookWorkoutsSteps {
         String email = ConfigLoader.getProperty("email");
         String password = ConfigLoader.getProperty("password");
         uri= ConfigLoader.getProperty("browser.uri");
-        driver = SeleniumCommon.openBrowser(uri+"login");
-        loginPage = new LoginPage(driver);
+        driver = SeleniumCommon.openBrowser(uri);
+        registrationPage = new RegistrationPage(driver);
+        loginPage = registrationPage.navigateToLoginPage();
         loginPage.enterEmail(email);
         loginPage.enterPassword(password);
         loginPage.submit();
@@ -47,7 +49,7 @@ public class UIBookWorkoutsSteps {
         String month = LocalDate.now().plusMonths(1).getMonth().toString().toLowerCase();
         month = month.substring(0, 1).toUpperCase() + month.substring(1);
         System.out.println(month);
-        int date = LocalDate.now().plusDays(133).getDayOfMonth();
+        int date = LocalDate.now().plusDays(20).getDayOfMonth();
         int year = LocalDate.now().getYear();
         System.out.println(date);
         Thread.sleep(3000);
@@ -78,7 +80,8 @@ public class UIBookWorkoutsSteps {
     }
 
     @Then("the user should see the toast message as {string}")
-    public void theUserShouldSeeTheToastMessageAs(String expectedToastMessage) {
+    public void theUserShouldSeeTheToastMessageAs(String expectedToastMessage) throws InterruptedException{
+        Thread.sleep(2000);
         System.out.println(bookWorkOutPage.getToastMessage());
         Assert.assertTrue(bookWorkOutPage.getToastMessage().contains(expectedToastMessage),
                "Response does not contain the expected message: " + expectedToastMessage);
