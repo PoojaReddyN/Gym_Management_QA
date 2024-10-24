@@ -18,7 +18,7 @@ public class DriverSingleton {
     public static WebDriver getDriver() {
         if (driver == null) {
             FirefoxOptions f=new FirefoxOptions();
-           // f.addArguments("--headless");
+            f.addArguments("--headless");
             driver=new FirefoxDriver(f);
                 }
         return driver;

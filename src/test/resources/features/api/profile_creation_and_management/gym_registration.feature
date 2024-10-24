@@ -39,7 +39,6 @@ Feature: User Registration API Testing
       | John Doe | valiwedd13@gmail.com    | Passw0rd!  | Weight Loss |                    | 400        | "Preferable activity is required and must contain at least one alphabetic character and cannot be purely numeric." |
 
 
-
   @Regression
   Scenario Outline: Test registration API with various input parameters
     Given the API endpoint is loaded from "baseURI"
@@ -56,16 +55,16 @@ Feature: User Registration API Testing
     Then the response status code should be <StatusCode>
     And the response should contain <Message>
     Examples:
-      | Name     | Email                    | Password  | YourTarget  | PreferableActivity | StatusCode | Message                                                                                                            |
+      | Name     | Email                 | Password  | YourTarget  | PreferableActivity | StatusCode | Message                                                                                                            |
 
     # Valid Input
-      | John Doe | valid.email285419@gmail.com | Passw0rd! | Weight Loss | Yoga               | 200        | "User created successfully"                                                                                        |
-      | John Doe | invfalidemail2           | Passw0rd! | Weight Loss | Yoga               | 400        | "Invalid email format"                                                                                             |
-      | John Doe | @gmail.com               | Passw0rd! | Weight Loss | Yoga               | 400        | "Invalid email format"                                                                                             |
-      | John Doe | raj3214@gmail.com        | passw0rd! | Weight Loss | Yoga               | 400        | "Error signing up user: Password did not conform with password policy: Password must have uppercase characters"    |
+      | John Doe | poojaaaa123@gmail.com | Passw0rd! | Weight Loss | Yoga               | 200        | "User created successfully"                                                                                        |
+      | John Doe | invfalidemail2        | Passw0rd! | Weight Loss | Yoga               | 400        | "Invalid email format"                                                                                             |
+      | John Doe | @gmail.com            | Passw0rd! | Weight Loss | Yoga               | 400        | "Invalid email format"                                                                                             |
+      | John Doe | raj3214@gmail.com     | passw0rd! | Weight Loss | Yoga               | 400        | "Error signing up user: Password did not conform with password policy: Password must have uppercase characters"    |
 
     # Missing Required Fields
-      |          | v1al2i112d@gmail.com     | Passw0rd! | Weight Loss | Yoga               | 400        | "Name is required"                                                                                                 |
-      | John Doe | a12@gmail.com            | Passw0rd! |             | Yoga               | 400        | "Target is required and must contain at least one alphabetic character and cannot be purely numeric."              |
-      | John Doe | valiwedd13@gmail.com     | Passw0rd! | Weight Loss |                    | 400        | "Preferable activity is required and must contain at least one alphabetic character and cannot be purely numeric." |
+      |          | v1al2i112d@gmail.com  | Passw0rd! | Weight Loss | Yoga               | 400        | "Name is required"                                                                                                 |
+      | John Doe | a12@gmail.com         | Passw0rd! |             | Yoga               | 400        | "Target is required and must contain at least one alphabetic character and cannot be purely numeric."              |
+      | John Doe | valiwedd13@gmail.com  | Passw0rd! | Weight Loss |                    | 400        | "Preferable activity is required and must contain at least one alphabetic character and cannot be purely numeric." |
 
