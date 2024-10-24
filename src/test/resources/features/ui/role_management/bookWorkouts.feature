@@ -1,6 +1,5 @@
 Feature: Booking a workout session
 
-  @Regression
   Scenario Outline: Validate date, month, and year selection for present or future dates
     Given the user navigates to the book workouts page
     When the user selects year, month, date, and time slot "<timeSlot>"
@@ -10,6 +9,7 @@ Feature: Booking a workout session
       | timeSlot         | toastMessage                 |
       | 03:30 - 04:30 PM | Workout booked successfully! |
 
+  @Regression
   Scenario Outline: Validate date, month, and year selection for already booked dates
     Given the user navigates to the book workouts page
     When the user selects year, month, date, and time slot "<timeSlot>"
@@ -19,6 +19,7 @@ Feature: Booking a workout session
       | timeSlot         |
       | 03:30 - 04:30 PM |
 
+ @Regression
   Scenario Outline: Validate date, month, and year selection for past dates
     Given the user navigates to the book workouts page
     When the user selects past year year, month, date, and time slot "<timeSlot>"

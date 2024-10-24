@@ -49,7 +49,7 @@ public class UIBookWorkoutsSteps {
         String month = LocalDate.now().plusMonths(1).getMonth().toString().toLowerCase();
         month = month.substring(0, 1).toUpperCase() + month.substring(1);
         System.out.println(month);
-        int date = LocalDate.now().plusDays(222).getDayOfMonth();
+        int date = LocalDate.now().plusDays(232).getDayOfMonth();
         int year = LocalDate.now().getYear();
         System.out.println(date);
         Thread.sleep(3000);
