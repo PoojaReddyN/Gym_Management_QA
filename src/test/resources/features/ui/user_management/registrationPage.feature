@@ -111,7 +111,7 @@ Feature: Validate Gym Management Registration Page
 
     Examples:
       | email                     | password    | name  | target      | activity | toastMessage                               |
-      | validemail.414053@test.com | Password12@ | Pooja | weight loss | CrossFit | Created Account Successfully               |
+      | validemail.412353@test.com | Password12@ | Pooja | weight loss | CrossFit | Created Account Successfully               |
       | valid.email167@test.com   | Password12@ | Pooja | weight loss | CrossFit | User already exists. Please try to log in. |
 
 
