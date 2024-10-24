@@ -110,9 +110,9 @@ Feature: Validate Gym Management Registration Page
     Then I should see the toast message as "<toastMessage>"
 
     Examples:
-      | email                     | password    | name  | target      | activity | toastMessage                               |
-      | validemail.412353@test.com | Password12@ | Pooja | weight loss | CrossFit | Created Account Successfully               |
-      | valid.email167@test.com   | Password12@ | Pooja | weight loss | CrossFit | User already exists. Please try to log in. |
+      | email                        | password    | name  | target      | activity | toastMessage                               |
+      | validemail.41235223@test.com | Password12@ | Pooja | weight loss | CrossFit | Created Account Successfully               |
+      | valid.email167@test.com      | Password12@ | Pooja | weight loss | CrossFit | User already exists. Please try to log in. |
 
 
 
